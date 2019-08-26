@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+
+    .backgroundImage {
+                        background-image: url("content/topbar.png");
+                    }
+
+    .padding {                                             
+
+                margin-left: 10%;
+    }
+
+</style>
+
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Loan Portal", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Loan Applications", "Index", "Loan", new { area = "" }, null)</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <!--BootStrap Navbar-->
+<nav class="navbar navbar-dark bg-dark navbar-expand-sm backgroundImage">
+    
+    <a class="navbar-brand backgroundImage" href="#">
+        <img src="content/PaydayLoanLogo.png" alt="">
+      </a>
+    
+    <ul class="navbar-nav" >
+        <li class=nav-item>
+            <a class="nav-link" href="#">WHAT WE OFFER</a>
+        </li>
+        <li class=nav-item>
+            <a class="nav-link" href="#">HOW IT'S DONE</a>
+        </li>
+        <li class=nav-item>
+            <a class="nav-link" href="#">BE INFORMED</a>
+        </li>
+        <li class=nav-item>
+            <a class="nav-link" href="#">FAQ</a>
+        </li>
+        <li class=nav-item>
+            <a class="nav-link" href="#">SIGN IN</a>
+        </li>
+        <li class=nav-item>
+            <a class="nav-link" href="#">APPLY NOW</a>
+        </li>
+
+    </ul>
+
+</nav> 
+
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+        @RenderSection("SPAViews", required: false)
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
